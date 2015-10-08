@@ -1,1 +1,6 @@
-bower.json
+{
+  "name": "angularapp-gulp-boilerplate",
+  "version": "0.0.1",
+  "description": "Example of Angular App ",
+  "dependencies": {}
+}

@@ -1,1 +1,17 @@
-package.json
+{
+  "name": "angularapp-gulp-boilerplate",
+  "version": "0.0.1",
+  "description": "Example of Project Angular and BlogApi",
+  "bugs": {
+    "url": "",
+    "email": "jidecima87@gmail.com"
+  },
+  "license": "MIT",
+  "author": "Nacho Decima <jidecima87@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
