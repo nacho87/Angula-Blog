@@ -1,7 +1,13 @@
+'use strict';
+
 //Require for Gulp and Server
 var gulp = require('gulp'),
 	connect = require('gulp-connect'),
-	historyApiFallback = require('connect-history-api-fallback');
+	historyApiFallback = require('connect-history-api-fallback'),
+	stylus = require('gulp-stylus'),
+	nib = require('nib'),
+	jshint = require('gulp-jshint'),
+	stylish = require('jshint-stylish');
 
 //Server for Development
 gulp.task('server', function(){
@@ -18,11 +24,6 @@ gulp.task('server', function(){
 
 
 //Stylus
-
-var stylus = require('gulp-stylus');
-	nib = require('nib');
-
-
 //Prepros the files .styl to css and reload the page.
 gulp.task('css', function(){
 	gulp.src('./app/stylesheets/main.styl')
@@ -39,10 +40,20 @@ gulp.task('html', function(){
 });
 
 
+//jshint
+gulp.task('jshint', function(){
+	return	gulp.src('./app/scripts/**/*.js')
+		.pipe(jshint('.jshintrc'))
+		.pipe(jshint.reporter('jshint-stylish'))
+		.pipe(jshint.reporter('fail'));
+});
+
+
 //Watch if have changes in HTML and CSS
 gulp.task('watch', function(){
 	gulp.watch(['./app/**/*.html'], ['html']);
 	gulp.watch(['./app/stylesheets/**/*.styl'], ['css']);
+	gulp.watch(['./app/scripts/**/*.js'], ['jshint']);
 });
 
 
