@@ -1,5 +1,6 @@
-'use strict';
-
 (function(){
-	console.log('hello world');
+'use strict';
+	//Here the funcionality
+
+	angular.module('blog',['ngRoute'])
 })();
