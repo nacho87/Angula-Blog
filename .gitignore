@@ -3,3 +3,6 @@ node_modules/
 
 #Compile css
 app/stylesheets/main.css
+
+#Bower files
+app/lib
