@@ -23,6 +23,15 @@ gulp.task('server', function(){
 });
 
 
+//jshint
+gulp.task('jshint', function(){
+	return gulp.src('./app/scripts/**/*.js')
+		.pipe(jshint('.jshintrc'))
+		.pipe(jshint.reporter('jshint-stylish'))
+		.pipe(jshint.reporter('fail'));
+
+});
+
 //Stylus
 //Prepros the files .styl to css and reload the page.
 gulp.task('css', function(){
@@ -40,13 +49,6 @@ gulp.task('html', function(){
 });
 
 
-//jshint
-gulp.task('jshint', function(){
-	return	gulp.src('./app/scripts/**/*.js')
-		.pipe(jshint('.jshintrc'))
-		.pipe(jshint.reporter('jshint-stylish'))
-		.pipe(jshint.reporter('fail'));
-});
 
 
 //Watch if have changes in HTML and CSS
