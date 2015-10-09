@@ -2,5 +2,17 @@
   "name": "angularapp-gulp-boilerplate",
   "version": "0.0.1",
   "description": "Example of Angular App ",
-  "dependencies": {}
+  "dependencies": {
+    "angular": "~1.4.7",
+    "bootstrap": "~3.3.5"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/js/bootstrap.js",
+        "dist/css/bootstrap.css",
+        "less/bootstrap.less"
+      ]
+    }
+  }
 }

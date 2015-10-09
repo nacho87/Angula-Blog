@@ -7,7 +7,9 @@ var gulp = require('gulp'),
 	stylus = require('gulp-stylus'),
 	nib = require('nib'),
 	jshint = require('gulp-jshint'),
-	stylish = require('jshint-stylish');
+	stylish = require('jshint-stylish'),
+	inject = require('gulp-inject'),
+	wiredep = require('wiredep').stream;
 
 //Server for Development
 gulp.task('server', function(){
@@ -29,7 +31,6 @@ gulp.task('jshint', function(){
 		.pipe(jshint('.jshintrc'))
 		.pipe(jshint.reporter('jshint-stylish'))
 		.pipe(jshint.reporter('fail'));
-
 });
 
 //Stylus
@@ -48,16 +49,36 @@ gulp.task('html', function(){
 	.pipe(connect.reload());
 });
 
+//Inject css and js files
+gulp.task('inject', function(){
+	var sources = gulp.src(['./app/scripts/**/*.js', './app/stylesheets/**/*.css']);
+	gulp.src('index.html', {cwd: './app'})
+		.pipe(inject(sources, {
+			read: false,
+			ignorePath: '/app'
+			}))
+		.pipe(gulp.dest('./app'));
+});
 
+
+//Inject the bower libs
+gulp.task('wiredep',function(){
+	gulp.src('./app/index.html')
+		.pipe(wiredep({
+			directory: './app/lib'
+			}))
+		.pipe(gulp.dest('./app'));
+});
 
 
 //Watch if have changes in HTML and CSS
 gulp.task('watch', function(){
 	gulp.watch(['./app/**/*.html'], ['html']);
-	gulp.watch(['./app/stylesheets/**/*.styl'], ['css']);
-	gulp.watch(['./app/scripts/**/*.js'], ['jshint']);
+	gulp.watch(['./app/stylesheets/**/*.styl'], ['css', 'inject']);
+	gulp.watch(['./app/scripts/**/*.js', './gulpfile.js'], ['jshint', 'inject']);
+	gulp.watch(['./bower.json'], ['wiredep']);
 });
 
 
 //Default Task
-gulp.task('default', ['server', 'watch']);
+gulp.task('default', ['server','inject','wiredep', 'watch']);
