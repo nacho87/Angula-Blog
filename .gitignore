@@ -1,2 +1,5 @@
 #Node Modules
 node_modules/
+
+#Compile css
+app/stylesheets/main.css
