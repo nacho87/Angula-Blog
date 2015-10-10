@@ -1,1 +1,5 @@
-post-list.tpl.html
+<ul class="post__list">
+	<li class="post__list__link" ng-repeat="post in postlist.posts">
+		<a ng-href="/post/{{post.id}}">{{post.title}}</a>
+	</li>
+</ul>

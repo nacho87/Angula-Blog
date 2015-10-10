@@ -1,1 +1,29 @@
-post-details.tpl.html
+<article class="blog__post">
+	<header class="blog__post__header">
+		<h1>{{postdetail.post.title}}</h1>
+	</header>
+
+	<p class="blog__post__body">
+		{{postdetail.post.body}}
+	</p>
+	<p>
+		Author: <strong>{{postdetail.user[0].name}}</strong> -
+		<span class="fa fa-mail"></span>{{postdetail.user[0].email}}
+	</p>
+</article>
+
+<aside class="commnents">
+	<header class="comments__header">
+		<h3><span class="fa fa-commnets"></span>Commnents</h3>
+	</header>
+
+	<ul class="commnents__list">
+		<li class="comments__list_item" ng-repeat="comment in postdetail.comments">
+			<span class="fa fa-user"></span>
+			<span class="comment__author">{{comment.email}}</span>
+			<p class="comment__body">
+				{{comment.body}}
+			</p>
+		</li>
+	</ul>
+</aside>

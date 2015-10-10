@@ -1,1 +1,12 @@
-post-create.tpl.html
+<section>
+	<form name="createPost" role="form" ng-submit="postcreate.create()">
+		<fieldset class="form_group">
+			<input type="text" class="form-control input-lg" placeholder="Title Post" ng-model="postcreate.post.title">
+		</fieldset>
+		<fieldset class="form_group">
+			<textarea type="text" class="form-control input-lg" placeholder="Post Text" ng-model="postcreate.post.text"></textarea>
+		</fieldset>
+		<hr>
+		<button class="btn btn-primary btn-lg" type="submit" ng-disable="!createPost.$valid"><span class="fa fa-rocket"></span>Submit</button>
+	</form>
+</section>
