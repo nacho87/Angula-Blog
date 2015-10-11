@@ -1,5 +1,6 @@
+<h1>Post List</h1>
 <ul class="post__list">
 	<li class="post__list__link" ng-repeat="post in postlist.posts">
-		<a ng-href="/post/{{post.id}}">{{post.title}}</a>
+		<a ng-href="/post/{{post.id}}"><span class="fa fa-caret-right"></span> {{post.title}}</a>
 	</li>
 </ul>

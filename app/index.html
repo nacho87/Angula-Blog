@@ -27,12 +27,15 @@
 
 		<!-- Add your site or application content here -->
 		<div class="container-fluid">
-			<div class="row">
-				<aside class="col-sm-3">
-					<a ng-href="/new">Add Post</a>
-				</aside>
-				<section class="col-sm-9" ng-view></section>
-			</div>
+			<header class="blog__header">
+				<h1><a ng-href="/">Blog json placeholder</a></h1>
+			</header>
+		</div>
+		<div class="container-fluid container__blog">
+			<aside class="col-sm-3 add__post">
+				<a ng-href="/new">Add Post</a>
+			</aside>
+			<section class="col-sm-9" ng-view></section>
 		</div>
 
 		<!-- bower:js -->
