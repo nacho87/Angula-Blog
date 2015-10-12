@@ -5,7 +5,9 @@
 		.module('blog.controllers', ['blog.services'])
 		.controller('PostListController', PostListController)
 		.controller('PostDetailController', PostDetailController)
-		.controller('PostCreateController', PostCreateController);
+		.controller('PostCreateController', PostCreateController)
+		.controller('UserDetailsController', UserDetailsController);
+
 
 	function PostListController(Post){
 		this.posts = Post.query();
@@ -39,6 +41,11 @@
 		this.create = function(){
 			Post.save(self.post);
 		};
+	}
 
+	function UserDetailsController($routeParams, User){
+		this.user = User.query({id: $routeParams.userId});
+		console.log('test');
+		console.log	(this.user);
 	}
 })();

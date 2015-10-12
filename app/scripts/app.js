@@ -22,6 +22,11 @@
 				templateUrl: 'views/post-create.tpl.html',
 				controller: 'PostCreateController',
 				controllerAs: 'postcreate'
+			})
+			.when('/user/:userId', {
+				templateUrl: 'views/user-details.tpl.html',
+				controller: 'UserDetailsController',
+				controllerAs: 'userdetail'
 			});
 	}
 
