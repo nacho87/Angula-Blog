@@ -10,4 +10,17 @@
 		<li>web: {{userdetail.user[0].website}}</li>
 		<li>phone: {{userdetail.user[0].phone}}</li>
 	</ul>
+
+	<h6>Note: all the markers are in the water</h6>
+	<ui-gmap-google-map center='userdetail.map.center' ng-init='center="{latitude: -26.8190099, longitude: -65.2204087}"'  zoom="userdetail.map.zoom">
+		<ui-gmap-marker
+			idKey='userdetail.marker.id'
+			coords='userdetail.marker.coords'
+			>
+			<ui-gmap-window options="userdetail.windowOptions" closeClick="userdetail.closeClick()">
+				<div>{{userdetail.title}}</div>>
+			</ui-gmap-window>
+		</ui-gmap-marker>
+
+	</ui-gmap-google-map>
 </section>

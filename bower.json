@@ -17,5 +17,8 @@
         "less/bootstrap.less"
       ]
     }
+  },
+  "devDependencies": {
+    "angular-google-maps": "~2.2.1"
   }
 }
